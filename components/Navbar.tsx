@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -36,13 +37,17 @@ export default function Navbar() {
         }`}
       >
         <div className="mx-auto max-w-5xl px-6 flex items-center justify-between h-16">
-          <a
-            href="#"
-            className={`heading-font text-base font-semibold tracking-tight transition-colors duration-500 cursor-pointer ${
-              isDark ? "text-white" : "text-zinc-900"
-            }`}
-          >
-            Kiril Rothacher
+          {/* Logo — dark pill background on hero so original colors stay visible */}
+          <a href="#" className="cursor-pointer flex items-center">
+            <div className={`rounded-lg px-2 py-1 transition-all duration-500 ${isDark ? "bg-black/40 backdrop-blur-sm" : ""}`}>
+              <Image
+                src="/KR-Logo.jpg"
+                alt="Kiril Rothacher"
+                width={64}
+                height={42}
+                className="object-contain"
+              />
+            </div>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -51,9 +56,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`text-sm transition-colors duration-500 cursor-pointer ${
-                  isDark
-                    ? "text-white/80 hover:text-white"
-                    : "text-zinc-500 hover:text-zinc-900"
+                  isDark ? "text-white/80 hover:text-white" : "text-zinc-500 hover:text-zinc-900"
                 }`}
               >
                 {link.label}
