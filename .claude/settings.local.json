@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "mcp__magic-21st__21st_magic_component_inspiration",
+      "Bash(pkill -f \"next dev\")"
+    ]
+  }
+}
